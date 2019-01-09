@@ -15,3 +15,7 @@ check password,port of the database.
 
 #SQL FILE
 online-mess-portal.sql is the sql file and run it in your workbench by importing.
+
+#USER MANUAL
+online-mess-portal.pdf is the user manual
+
