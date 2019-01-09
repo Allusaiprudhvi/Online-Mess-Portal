@@ -1,0 +1,37 @@
+<body>
+  <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+<header style="padding:5px;">
+  <h1 style="color:white;">Mess Portal</h1>
+  <h3 style="text-align: right;color:white;">{{name}} MESS</h3>
+  <h3 style="text-align: right;color:white;">{{mail}}</h3>
+
+  </header>
+<nav>
+  <ul>
+    <li  routerLinkActive="active"><a class="active" routerLink='/incharge_home'>Home</a></li>
+    <li routerLinkActive="active"><a  routerLink='/incharge_menu'>Add Menu</a></li>
+    <li routerLinkActive="active"><a  routerLink='/incharge_update'>Update Bill</a></li>
+
+    <li>        <a href="javascript:void(0);" (click)="logout()">Logout</a></li>
+  </ul>
+</nav>
+<div style="float: right"><a  (click)="captureScreen()"class="btn">Export to Pdf <span class="arrow">❯</span></a></div>
+
+
+<div  style="height:500px">  
+<table id="contentToConvert"  class="responstable" style="text-align: center">
+   
+    <tr><th>ROLL NO</th><th>NAME</th><th>MONTH</th><th>MESS NAME</th><th>MONTH BILL</th></tr>
+     <tr *ngFor="let a of res"  ><td >{{a.user_id}}</td> <td>{{a.name}}</td>  <td>{{a.month}}</td>  <td> {{a.mess_name}}</td><td>{{a.month_bill}}</td>
+     </tr>
+     
+     </table>
+</div>
+
+
+    </body>

@@ -1,0 +1,75 @@
+<body> <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+</head>
+<header style="padding:5px;">
+
+  <h1 style="color:white">Mess Portal</h1>
+
+  <h3 style="text-align: right">Admin</h3>
+  </header>
+<nav>
+  <ul>
+    <li  routerLinkActive="active"><a routerLink='/admin_home'>Home</a></li>
+    <li routerLinkActive="active"><a  class="active" routerLink='/admin_user'>Add User</a></li>
+    <li routerLinkActive="active"><a  routerLink='/admin_feedback'>student FeedBack</a></li>
+    <li routerLinkActive="active"><a  routerLink='/admin_mess'>Add Mess</a></li>
+    <li>        <a href="javascript:void(0);" (click)="logout()">Logout</a></li>
+  </ul>
+</nav>
+<h1 style="text-align: center;color:white">Students</h1>
+<a  (click)="display()"class="btn">Add User <span class="arrow">❯</span></a>
+
+<div style="float: right"><a  (click)="captureScreen()"class="btn">Export to Pdf <span class="arrow">❯</span></a></div>
+
+      <section id="enter">
+          <div id="form-main" >
+              <div id="form-div">
+                <form [formGroup]="user_form" (ngSubmit)="insert(user_form.value)">
+                  
+                  <p class="name">
+                    <input formControlName="name" class="feedback-input" type="text"  placeholder="Name"  />
+                  </p>
+                  
+                  <p class="name">
+                      <input formControlName="user_id" class="feedback-input" type="text"  placeholder="RollNO"  />
+
+                  </p>
+                  
+                
+                  <p class="name">
+                      <input formControlName="password" class="feedback-input" type="text"  placeholder="Password"  />
+
+                  </p>
+                  <p class="name">
+                      <input formControlName="p2" class="feedback-input" type="text"  placeholder="Retype Your Password"  />
+
+                  </p>
+                  <p class="email">
+                      <input formControlName="email_id" class="feedback-input" type="email"  placeholder="Email Id"  />
+
+                  </p>
+                  <p class="email">
+                      <input formControlName="phone_no" class="feedback-input" type="text"  placeholder="Phone Number"  />
+
+                  </p>
+                  
+                  
+                  
+                  
+                  <div class="submit">
+                    <input type="submit" value="SEND" id="button-blue"/>
+                    <div class="ease"></div>
+                  </div>
+                </form>
+              </div>
+        </div>
+        </section>
+<table id="contentToConvert" class="responstable" style="text-align: center">
+       
+  <tr><th>Sno</th><th>User_id</th><th> NAME</th><th>Dues</th><th>EMAIL_ID</th><th>PHONE NUMBER</th><th>Delete</th></tr>
+   <tr *ngFor="let a of user;let i=index" [attr.data-index]="i"  ><td>{{i}}</td><td >{{a.user_id}}</td> <td>{{a.name}}</td><td>{{a.dues}}</td><td>{{a.email_id}}</td><td>{{a.phone_no}}</td><td><a (click)="delete_user({user_id:a.user_id})"><i class="fa fa-trash-o" style="font-size:28px;color:red"></i></a>
+   </td></tr>
+   
+   </table>

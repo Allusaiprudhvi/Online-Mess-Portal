@@ -1,0 +1,34 @@
+<body> <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  </head>
+  <header style="padding:5px;">
+  
+    <h1 style="color:white">Mess Portal</h1>
+  
+    <h3 style="text-align: right">Admin</h3>
+    </header>
+  <nav>
+    <ul>
+      <li  routerLinkActive="active"><a routerLink='/admin_home'>Home</a></li>
+      <li routerLinkActive="active"><a routerLink='/admin_user'>Add User</a></li>
+      <li routerLinkActive="active"><a   class="active" routerLink='/admin_feedback'>student FeedBack</a></li>
+      <li routerLinkActive="active"><a  routerLink='/admin_mess'>Add Mess</a></li>
+      <li>        <a href="javascript:void(0);" (click)="logout()">Logout</a></li>
+    </ul>
+  </nav>
+  <form [formGroup]="feedback_form" (ngSubmit)="get_feedback(feedback_form.value)">
+      <input type="text" class="signUpInput" list="messes" formControlName="mess_name" placeholder="select mess"/>
+            <datalist id="messes">
+                <option *ngFor="let a of mess" value={{a.mess_name}}>
+             </datalist>
+             <input type="submit" value="Check"/>
+        </form>
+<h1 style="text-align: center">Student FeedBack</h1>
+        <table class="responstable" style="text-align: center">
+
+            <tr><th style="text-size:55px;">{{mess_name}} Mess</th><th>Roll No</th><th>Name</th><th>Month</th><th>Room</th><th>Mobile</th><th>Faculty Advisor</th><th>Duration</th><th>Continue mess?</th><th>Food Type</th><th>CLEANLINES</th><th> Service Of Staff</th><th> Quality of food</th><th>menu</th><th>staff in uniform</th><th>plates/spoon/ser counter sufficient</th><th>Dish washing powder</th><th>suggestion box maintained</th><th>extra items are provided as required</th><th>charges for extra items are displayed</th></tr>
+             <tr *ngFor="let a of feedback"  > <td></td><td>{{a.user_id}}</td>    <td> {{a.name}}</td><td>{{a.month}}</td><td>{{a.room}}</td><td>{{a.mobile_no}}</td><td>{{a.fa}}</td><td>{{a.duration}}</td><td>{{a.cont}}</td><td>{{a.type}}</td><td>{{a.f1}}</td><td>{{a.f2}}</td><td>{{a.f3}}</td><td>{{a.f4}}</td><td>{{a.f5}}</td><td>{{a.f6}}</td><td>{{a.f7}}</td><td>{{a.f8}}</td><td>{{a.f9}}</td><td>{{a.f10}}</td></tr>
+             </table>
+  </body>

@@ -1,0 +1,45 @@
+<body> <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  </head>
+  <header style="padding:5px;">
+  
+    <h1 style="color:white">Mess Portal</h1>
+  
+    <h3 style="text-align: right">Admin</h3>
+    </header>
+  <nav>
+    <ul>
+      <li  routerLinkActive="active"><a  class="active" routerLink='/admin_home'>Home</a></li>
+      <li routerLinkActive="active"><a routerLink='/admin_user'>Add User</a></li>
+      <li routerLinkActive="active"><a  routerLink='/admin_feedback'>student FeedBack</a></li>
+      <li routerLinkActive="active"><a  routerLink='/admin_mess'>Add Mess</a></li>
+      <li>        <a href="javascript:void(0);" (click)="logout()">Logout</a></li>
+    </ul>
+  </nav>
+  <form [formGroup]='user_form' (ngSubmit)="user_det(user_form.value)">
+      <input type="text" formControlName="user_id" placeholder="enter RollNO">
+      
+      <input type="submit" value="search">
+      
+      </form>  <br><br>
+
+      <a  (click)="update_month_bill()"class="btn">Update Month Bill<span class="arrow">❯</span></a>
+
+    
+<div  style="height:500px">  
+    <table class="responstable" style="text-align: center">
+       
+        <tr><th>ROLL NO</th><th>NAME</th><th>Dues</th><th>Update Dues</th></tr>
+         <tr *ngFor="let a of user"  ><td >{{a.user_id}}</td> <td>{{a.name}}</td><td>{{a.dues}}</td><td style="text-align: center"><a (click)="display()"><i class="fa fa-edit" style="font-size:28px;color:red"></i></a>
+         </td></tr>
+         <section id="update" style="margin-left: 70%;"> 
+            <form [formGroup]="due_form" class="form-wrapper" (ngSubmit)="update_due(due_form.value)">
+                <input type="text" id="search"  formControlName="dues">
+                <input type="submit"  id="submit" value="update">
+                </form>
+            </section>
+            
+         </table>
+  </div>

@@ -1,0 +1,58 @@
+<body> <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+</head>
+<header style="padding:5px;">
+
+  <h1 style="color:white">Mess Portal</h1>
+  <div align="right" style="position: relative"> <a routerLink='/user_profile'><img width=80px; height=100px; style="margin-right: 5px;" src="http://webiconspng.com/wp-content/uploads/2016/11/account_avatar_male_profile_user_icon_1218734.png"></a></div>
+
+  <h3 style="text-align: right">{{name}}</h3>
+  <p style="text-align: right">Your due is {{dues}}</p>
+  </header>
+<nav>
+  <ul>
+    <li  routerLinkActive="active"><a routerLink='/student_home'>Home</a></li>
+    <li routerLinkActive="active"><a (click)="check()">Allot Mess</a></li>
+    <li routerLinkActive="active"><a  routerLink='/student_feedback'>FeedBack</a></li>
+    <li routerLinkActive="active"><a  routerLink='/student_menu'>Mess Menu</a></li>
+    <li>        <a href="javascript:void(0);" (click)="logout()">Logout</a></li>
+  </ul>
+</nav>
+<h1 style="text-align: center;color:gold;margin-bottom: 70px">USER PROFILE</h1>
+<div style="text-align: center">
+    <div >
+        
+      <h4>Name  :{{name}}</h4>
+      <h4>User Id:{{user_name}}
+  </h4>
+      <h4>Present Mess :{{p_mess}}
+  </h4>
+      <h4>Present Month Bill :{{month_bill}}</h4>
+      <table class="responstable" >
+        <h1 style="text-align: center">Mess Info</h1>
+        <tr><th>MONTH</th> <th>MESS NAME</th> <th>MONTH BILL</th></tr>
+      <tr *ngFor="let a of res2"> <td>{{a.month}}</td><td>{{a.mess_name}}</td><td>{{a.month_bill}}</td></tr>
+        </table>
+        
+  </div>
+  </div>
+<div style="height: 800px;">
+    <div id="box" style="margin-bottom: 5%">
+        <form [formGroup]="pas_form" (ngSubmit)="update_password(pas_form.value)">
+
+      <h1>Change Password <span>choose a good one!</span></h1>
+      
+          <input type="password" formControlName="old" value="" placeholder="Enter old Password" id="p" class="password">
+      
+          <input type="password" formControlName="new" value="" placeholder="Enter new Password" id="p" class="password">
+
+          <input type="password" formControlName="new1" value="" placeholder="Confirm Password" id="p-c" class="password">
+       
+        
+       
+
+<input  type="submit" value="Change">
+
+      </form>
+    </div>
+    </div>

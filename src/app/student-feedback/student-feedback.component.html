@@ -1,0 +1,159 @@
+<body>
+  <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+<header style="padding:5px;">
+  <h1 style="color:white;">Mess Portal</h1>
+  <aside align="right" style="margin-left: 95%;; position: relative"> <a routerLink='/user_profile'><img width=80px; height=100px; style="margin-right: 5px;" src="http://webiconspng.com/wp-content/uploads/2016/11/account_avatar_male_profile_user_icon_1218734.png"></a></aside>
+
+  <h3 style="text-align: right">{{name}}</h3>
+  <p style="text-align: right">Your due is {{dues}}</p> 
+  </header>
+<nav>
+  <ul>
+    <li  routerLinkActive="active"><a routerLink='/student_home'>Home</a></li>
+    <li routerLinkActive="active"><a  (click)="check()">Allot Mess</a></li>
+    <li routerLinkActive="active"><a class="active" routerLink='/student_feedback'>FeedBack</a></li>
+    <li routerLinkActive="active"><a  routerLink='/student_menu'>Mess Menu</a></li>
+
+    <li>        <a href="javascript:void(0);" (click)="logout()">Logout</a></li>
+  </ul>
+</nav>
+<h1 style="text-align: center;color: white;font-size: 50px;">FeedBack</h1>
+<div id="bg">
+  <div class="module">
+
+    
+    <form class="form" [formGroup]="feed_form" (ngSubmit)="feedback(feed_form.value)" >
+      <input type="text" formControlName="name" placeholder="Enter Your Name" class="textbox" />
+      <div style="color:red" *ngIf="feed_form.get('name').invalid && (feed_form.get('name').dirty || feed_form.get('name').touched)">
+        <div *ngIf="feed_form.get('name').hasError('required')">Enter your name</div>
+      </div>
+
+      <input type="text" formControlName="mess_name" placeholder="Enter MESS Name" class="textbox" required/>
+      <div style="color:red" *ngIf="feed_form.get('mess_name').invalid && (feed_form.get('mess_name').dirty || feed_form.get('mess_name').touched)">
+        <div *ngIf="feed_form.get('mess_name').hasError('required')">Enter mess name</div>
+      </div>
+
+      <input type="number" formControlName="month"  placeholder="enter month" class="textbox" required />
+      <div style="color:red" *ngIf="feed_form.get('month').invalid && (feed_form.get('month').dirty || feed_form.get('month').touched)">
+        <div *ngIf="feed_form.get('month').hasError('required')">Enter your name</div>
+      </div>
+
+      <input type="text" formControlName="room"  placeholder="enter hostel/room no" class="textbox" />
+      <div style="color:red" *ngIf="feed_form.get('room').invalid && (feed_form.get('room').dirty || feed_form.get('room').touched)">
+        <div *ngIf="feed_form.get('room').hasError('room')">Enter your Room no and hostel</div>
+      </div>
+
+      <input type="text" formControlName="mobile_no"  placeholder="enter mobile no" class="textbox" />
+      <div style="color:red" *ngIf="feed_form.get('mobile_no').invalid && (feed_form.get('mobile_no').dirty || feed_form.get('mobile_no').touched)">
+        <div *ngIf="feed_form.get('mobile_no').hasError('required')">Enter your mobile_no</div>
+      </div>
+
+      <input type="text" formControlName="fa"  placeholder="Faculty Advisor" class="textbox" />
+      <div style="color:red" *ngIf="feed_form.get('fa').invalid && (feed_form.get('fa').dirty || feed_form.get('fa').touched)">
+        <div *ngIf="feed_form.get('fa').hasError('required')">Enter Faculty Advisor name</div>
+      </div>
+
+      <input type="text" formControlName="duration"  placeholder="enter Duration" class="textbox" />
+      <div style="color:red" *ngIf="feed_form.get('duration').invalid && (feed_form.get('duration').dirty || feed_form.get('duration').touched)">
+        <div *ngIf="feed_form.get('duration').hasError('required')">Enter duration</div>
+      </div>
+
+      <input type="text" list="types" formControlName="type"  placeholder="VEG/NONVEG/MIXED" class="textbox" />
+      <datalist id="types">
+        <option value="VEG">
+          <option value="NON-VEG">
+            <option value="MIXED">
+      </datalist>
+      <div style="color:red" *ngIf="feed_form.get('type').invalid && (feed_form.get('type').dirty || feed_form.get('type').touched)">
+        <div *ngIf="feed_form.get('type').hasError('required')">Enter mess type</div>
+      </div>
+
+      <input type="number" formControlName="f1"  placeholder="CLEANLINESS" class="textbox"required />
+      <div style="color:red" *ngIf="feed_form.get('f1').invalid && (feed_form.get('f1').dirty || feed_form.get('f1').touched)">
+        <div *ngIf="feed_form.get('f1').hasError('required')">allot marks for CLEANLINESS</div>
+        <div *ngIf="feed_form.get('f1').hasError('min')">minimum marks are 0</div>
+        <div *ngIf="feed_form.get('f1').hasError('max')">maximum marks are  10</div>
+
+      </div>
+
+      
+      <input type="number" formControlName="f2"  placeholder="Service Of Staff" class="textbox" required/>
+      <div style="color:red" *ngIf="feed_form.get('f2').invalid && (feed_form.get('f2').dirty || feed_form.get('f2').touched)">
+        <div *ngIf="feed_form.get('f2').hasError('required')">allot marks for  Service Of Staff</div>
+        <div *ngIf="feed_form.get('f2').hasError('min')">minimum marks are 0</div>
+        <div *ngIf="feed_form.get('f2').hasError('max')">maximum marks are  10</div>
+
+      </div>
+    
+      
+      <input type="number" formControlName="f3"  placeholder="Quality of Food" class="textbox" required/>
+      <div style="color:red" *ngIf="feed_form.get('f3').invalid && (feed_form.get('f3').dirty || feed_form.get('f3').touched)">
+        <div *ngIf="feed_form.get('f3').hasError('required')">allot marks for  Quality of food</div>
+        <div *ngIf="feed_form.get('f3').hasError('min')">minimum marks are 0</div>
+        <div *ngIf="feed_form.get('f3').hasError('max')">maximum marks are 10</div>
+      </div>
+
+      <input type="number" formControlName="f4"  placeholder="is menu adhered?" class="textbox" required />
+      <div style="color:red" *ngIf="feed_form.get('f4').invalid && (feed_form.get('f4').dirty || feed_form.get('f4').touched)">
+        <div *ngIf="feed_form.get('f4').hasError('required')">allot marks for menu</div>
+        <div *ngIf="feed_form.get('f4').hasError('min')">minimum marks are 0</div>
+        <div *ngIf="feed_form.get('f4').hasError('max')">maximum marks are 10</div>
+      </div>
+
+      <input type="number" formControlName="f5"  placeholder="staff in uniform" class="textbox" required/>
+      <div style="color:red" *ngIf="feed_form.get('f5').invalid && (feed_form.get('f5').dirty || feed_form.get('f5').touched)">
+        <div *ngIf="feed_form.get('f5').hasError('required')">allot marks </div>
+        <div *ngIf="feed_form.get('f5').hasError('min')">minimum marks are 0</div>
+        <div *ngIf="feed_form.get('f5').hasError('max')">maximum marks are 10</div>
+      </div>
+
+      <input type="number" formControlName="f6"  placeholder="plates/spoon/ser counter sufficient" class="textbox" required/>
+      <div style="color:red" *ngIf="feed_form.get('f6').invalid && (feed_form.get('f6').dirty || feed_form.get('f6').touched)">
+        <div *ngIf="feed_form.get('f6').hasError('required')">allot marks </div>
+        <div *ngIf="feed_form.get('f6').hasError('min')">minimum marks are 0</div>
+        <div *ngIf="feed_form.get('f6').hasError('max')">maximum marks are 10</div>
+      </div>
+
+      <input type="number" formControlName="f7"  placeholder="Dish washing powder" class="textbox" required/>
+      <div style="color:red" *ngIf="feed_form.get('f7').invalid && (feed_form.get('f7').dirty || feed_form.get('f7').touched)">
+        <div *ngIf="feed_form.get('f7').hasError('required')">allot marks </div>
+        <div *ngIf="feed_form.get('f7').hasError('min')">minimum marks are 0</div>
+        <div *ngIf="feed_form.get('f7').hasError('max')">maximum marks are 10</div>
+      </div>
+     
+      <input type="number" formControlName="f8"  placeholder="suggestion box maintained" class="textbox" required/>
+      <div style="color:red" *ngIf="feed_form.get('f8').invalid && (feed_form.get('f8').dirty || feed_form.get('f8').touched)">
+        <div *ngIf="feed_form.get('f8').hasError('required')">allot marks </div>
+        <div *ngIf="feed_form.get('f8').hasError('min')">minimum marks are 0</div>
+        <div *ngIf="feed_form.get('f8').hasError('max')">maximum marks are 10</div>
+      </div>
+
+      <input type="number" formControlName="f9"  placeholder="extra items are provided as required" class="textbox" required/>
+      <div style="color:red" *ngIf="feed_form.get('f9').invalid && (feed_form.get('f9').dirty || feed_form.get('f9').touched)">
+        <div *ngIf="feed_form.get('f9').hasError('required')">allot marks </div>
+        <div *ngIf="feed_form.get('f9').hasError('min')">minimum marks are 0</div>
+        <div *ngIf="feed_form.get('f9').hasError('max')">maximum marks are 10</div>
+      </div>
+
+      <input type="number" formControlName="f10"  placeholder="charges for extra items are displayed" class="textbox" required/>
+      <div style="color:red" *ngIf="feed_form.get('f10').invalid && (feed_form.get('f10').dirty || feed_form.get('f10').touched)">
+        <div *ngIf="feed_form.get('f10').hasError('required')">allot marks </div>
+        <div *ngIf="feed_form.get('f10').hasError('min')">minimum marks are 0</div>
+        <div *ngIf="feed_form.get('f10').hasError('max')">maximum marks are 10</div>
+      </div>
+
+      <input type="text" formControlName="cont"  placeholder="Do you want to continue this mess" class="textbox" required/>
+      <div style="color:red" *ngIf="feed_form.get('cont').invalid && (feed_form.get('cont').dirty || feed_form.get('cont').touched)">
+        <div *ngIf="feed_form.get('cont').hasError('required')">enter yes/no</div>
+      </div>
+
+      <input type="submit" value="Submit" class="button" />
+    </form>
+  </div>
+</div>
+
+</body>

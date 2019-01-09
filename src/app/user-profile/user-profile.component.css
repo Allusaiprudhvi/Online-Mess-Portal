@@ -1,0 +1,237 @@
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+ top:0;
+    border: 0;
+    margin: 0;
+background-image: url('https://wallpapercave.com/wp/rUSFi40.jpg');
+  }
+  
+  h1 {
+    font-family: Verdana;
+    font-weight: normal;
+    color: #024457;
+  }
+  h1 span {
+    color: #167F92;
+  }
+
+nav{
+    background-color: #13130D;
+                    overflow: hidden;
+                margin:0;
+}
+nav ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width:100%;
+}
+
+nav ul li{
+    float: left;
+}
+nav ul li a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 25px;
+    color :white;
+}
+
+nav ul li a:hover{
+    background-color: #515741;
+}  
+nav ul li a.active{
+  background-color: #515741;
+  
+}
+.break{
+    clear: both;
+}
+aside{
+    float:left;
+    
+   text-align: center;
+}
+table{
+    text-align: center;
+margin-top:1%;
+}
+.responstable {
+    text-align: center;
+    margin-left: 40%;
+
+    overflow: hidden;
+    background: #FFF;
+    color: #024457;
+    border-radius: 10px;
+    border: 1px solid #167F92;
+    box-shadow: 1px 1px 1px 2px gray;
+  }
+  .responstable tr {
+    border: 1px solid #D9E4E6;
+  }
+  .responstable tr:nth-child(odd) {
+    background-color: #EAF3F3;
+  }
+  .responstable th {
+    display: none;
+    border: 1px solid #FFF;
+    background-color: #167F92;
+    color: #FFF;
+    padding: 1em;
+  }
+  .responstable th:first-child {
+    display: table-cell;
+    text-align: center;
+  }
+  .responstable th:nth-child(2) {
+    display: table-cell;
+  }
+  .responstable th:nth-child(2) span {
+    display: none;
+  }
+  .responstable th:nth-child(2):after {
+    content: attr(data-th);
+  }
+  @media (min-width: 480px) {
+    .responstable th:nth-child(2) span {
+      display: block;
+    }
+    .responstable th:nth-child(2):after {
+      display: none;
+    }
+  }
+  .responstable td {
+    display: block;
+    word-wrap: break-word;
+    max-width: 20em;
+  }
+  .responstable td:first-child {
+    display: table-cell;
+    text-align: center;
+    border-right: 1px solid #D9E4E6;
+  }
+  @media (min-width: 480px) {
+    .responstable td {
+      border: 1px solid #D9E4E6;
+    }
+  }
+  .responstable th, .responstable td {
+    text-align: left;
+    margin: .5em 1em;
+  }
+  input{
+      margin-top: 3%;
+      padding:10px 20px;
+      border:2px solid white;
+      outline:0;      
+  }
+  @media (min-width: 480px) {
+    .responstable th, .responstable td {
+      display: table-cell;
+      padding: 1em;
+    }
+  }
+
+  
+
+
+#form-main{
+	width:100%;
+	float:left;
+}
+
+#form-div {
+    background-color:white;
+    opacity: 0.5;
+    color: #13130D;
+	padding-left:35px;
+	padding-right:35px;
+	padding-top:35px;
+	padding-bottom:50px;
+	width: 400px;
+	float: left;
+	left: 30%;
+	position: absolute;
+  margin-top:30px;
+	margin-left: -260px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+#box {
+  width: 400px;
+  margin: 10% auto;
+  text-align: center;
+color: white;
+  padding:20px 50px;
+  box-sizing:border-box;
+  background-color: #024457;
+  box-shadow:0 3px 12px rgba(0,0,0,0.2);
+  border-radius:2%;
+  margin-bottom: 20em;
+
+}
+h1 {
+  margin-bottom: 1.5em;
+  font-size: 30px;
+  font-weight: 100;
+  color: white;
+
+}
+ h1 span {
+  display:block;
+  font-size: 14px;
+ }
+form p { position: relative; }
+
+.password {
+  width: 90%;
+  padding: 15px 12px;
+  margin-bottom: 5px;
+  border: 1px solid #e5e5e5;
+  border-bottom: 2px solid #ddd;
+  color: rgb(24, 121, 20);
+
+}
+.password + .unmask {
+  position: absolute;
+  right: 5%;
+  top: 10px;
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  border-radius: 50%;
+  cursor:pointer;
+  border: none;
+  font-family:'fontawesome';
+  font-size:14px;
+  line-height:24px;
+  -webkit-appearance:none;
+  outline:none;
+  color: white;
+
+}
+.password + .unmask:before {
+  content: "\f06e";
+  position:absolute;
+  top:0; left:0;
+  width: 25px;
+  height: 25px;
+  z-index:1;
+  border:2px solid;
+  border-radius: 50%;
+  color: white;
+
+
+}
+.password[type="text"] + .unmask:before {
+ content:"\f070";
+  color: white;
+}
+#valid{
+  font-size:12px;
+  color: white;
+  height:15px
+}

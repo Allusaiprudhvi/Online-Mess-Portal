@@ -1,0 +1,144 @@
+<body> <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <script src="https://npmcdn.com/core-js/client/shim.min.js"></script>
+
+    <script src="https://npmcdn.com/zone.js@0.6.12?main=browser"></script>
+    <script src="https://npmcdn.com/reflect-metadata@0.1.3"></script>
+    <script src="https://npmcdn.com/systemjs@0.19.27/dist/system.src.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.16/jspdf.plugin.autotable.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+  </head>
+  <header style="padding:5px;">
+  
+    <h1 style="color:white">Mess Portal</h1>
+  
+    <h3 style="text-align: right">Admin</h3>
+    </header>
+  <nav>
+    <ul>
+      <li  routerLinkActive="active"><a routerLink='/admin_home'>Home</a></li>
+      <li routerLinkActive="active"><a routerLink='/admin_user'>Add User</a></li>
+      <li routerLinkActive="active"><a  routerLink='/admin_feedback'>student FeedBack</a></li>
+      <li routerLinkActive="active"><a   class="active" routerLink='/admin_mess'>Add Mess</a></li>
+      <li>        <a href="javascript:void(0);" (click)="logout()">Logout</a></li>
+    </ul>
+  </nav>
+  <a  style="margin-top:20px;float: left;" (click)="display()" class="btn">Add Mess <span class="arrow">❯</span></a>
+<h1 style="text-align: center" >Mess Information</h1>
+      <section id="enter" style="margin-bottom: 20px">
+          <div id="form-main" >
+              <div id="form-div">
+                <form [formGroup]="mess_form" (ngSubmit)="add_mess(mess_form.value)">
+                  
+                  <p class="name">
+                    <input formControlName="mess_name" class="feedback-input" type="text"  placeholder="Mess Name"  />
+                  </p>
+                  
+                  <p class="name">
+                      <input formControlName="mess_type" class="feedback-input" type="text"  placeholder="Mess Type"  />
+
+                  </p>
+                  
+                  <p class="name">
+                      <input formControlName="mess_capacity" class="feedback-input" type="text"  placeholder="Mess Capacity"  />
+
+                  </p>
+                  <p class="name">
+                      <input formControlName="incharge_id" class="feedback-input" type="text"  placeholder="incharge_id"  />
+
+                  </p>
+                  <p class="name">
+                      <input formControlName="password" class="feedback-input" type="text"  placeholder="Password"  />
+
+                  </p>
+                  <p class="name">
+                      <input formControlName="p2" class="feedback-input" type="text"  placeholder="Retype Your Password"  />
+
+                  </p>
+                  <p class="email">
+                      <input formControlName="email_id" class="feedback-input" type="email"  placeholder="Email Id"  />
+
+                  </p>
+                  <p class="email">
+                      <input formControlName="phone_no" class="feedback-input" type="text"  placeholder="Phone Number"  />
+
+                  </p>
+                  
+                  
+                  
+                  
+                  <div class="submit">
+                    <input type="submit" value="SEND" id="button-blue"/>
+                    <div class="ease"></div>
+                  </div>
+                </form>
+              </div>
+        </div>
+        </section>
+        <section id="e_enter">
+            <div id="form-main" >
+                <div id="form-div">
+                  <form [formGroup]="mess_form" (ngSubmit)="edit_mess(mess_form.value)">
+                    
+                    <p class="name">
+                      <input formControlName="mess_name" class="feedback-input" type="text" value={{a}} readonly />
+                    </p>
+                    
+                    <p class="name">
+                        <input formControlName="mess_type" class="feedback-input" type="text" value={{b}}   />
+  
+                    </p>
+                    
+                    <p class="name">
+                        <input formControlName="mess_capacity" class="feedback-input" type="text" value={{c}} />
+  
+                    </p>
+                    <p class="name">
+                        <input formControlName="incharge_id" class="feedback-input" type="text" value={{d}} placeholder="incharge_id" readonly />
+  
+                    </p>
+                    <p class="name">
+                        <input formControlName="password" class="feedback-input" type="text"  placeholder="Password"  />
+  
+                    </p>
+                    <p class="name">
+                        <input formControlName="p2" class="feedback-input" type="text" placeholder="Retype Your Password"  />
+  
+                    </p>
+                    <p class="email">
+                        <input formControlName="email_id" class="feedback-input" type="email" value={{e}}   />
+  
+                    </p>
+                    <p class="email">
+                        <input formControlName="phone_no" class="feedback-input" type="text" value={{f}} placeholder="Phone Number"  />
+  
+                    </p>
+                    
+                    
+                    
+                    
+                    <div class="submit">
+                      <input type="submit" value="SEND" id="button-blue"/>
+                      <div class="ease"></div>
+                    </div>
+                  </form>
+                </div>
+          </div>
+          </section>
+    <table class="responstable" style="text-align: center">
+       
+        <tr><th>MESS NAME</th><th>MESS TYPE</th><th>MESS CAPACITY</th><th>INCHARGE-ID</th><th>EMAIL_ID</th><th>PHONE NUMBER</th><th>Edit</th><th>Delete</th></tr>
+         <tr *ngFor="let a of mess"  ><td >{{a.mess_name}}</td> <td>{{a.mess_type}}</td><td>{{a.mess_capacity}}</td><td>{{a.incharge_id}}</td><td>{{a.email_id}}</td><td>{{a.phone_no}}</td><a (click)="display2(a)"><i class="fa fa-edit" style="font-size:28px;color:black"></i></a><td style="text-align: center"><a (click)="delete_mess({incharge_id:a.incharge_id,mess_name:a.mess_name})"><i class="fa fa-trash-o" style="font-size:28px;color:red"></i></a>
+         </td></tr>
+         
+         </table>
+  </body>

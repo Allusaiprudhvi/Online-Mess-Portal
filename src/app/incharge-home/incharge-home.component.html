@@ -1,0 +1,48 @@
+<body>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+      </head>
+  <header style="padding:5px;">
+    <h1 style="color:white;">Mess Portal</h1>
+    <h3 style="text-align: right;color:white;">{{name}} MESS</h3>
+    <h3 style="text-align: right;color:white;">{{mail}}</h3>
+
+    </header>
+  <nav>
+    <ul>
+      <li  routerLinkActive="active"><a class="active" routerLink='/incharge_home'>Home</a></li>
+      <li routerLinkActive="active"><a  routerLink='/incharge_menu'>Add Menu</a></li>
+      <li routerLinkActive="active"><a  routerLink='/incharge_update'>Update Bill</a></li>
+
+      <li>        <a href="javascript:void(0);" (click)="logout()">Logout</a></li>
+    </ul>
+  </nav>
+<form [formGroup]='user_form' (ngSubmit)="check(user_form.value)">
+  <input type="text" formControlName="user_id" placeholder="enter RollNO">
+  
+  <input type="submit" value="search">
+  </form>  
+
+
+<div  style="height:500px">  
+  <table class="responstable" style="text-align: center">
+     
+      <tr><th>ROLL NO</th><th>NAME</th><th>MONTH</th><th>MESS NAME</th><th>MONTH BILL</th><th>Update Bill</th></tr>
+       <tr *ngFor="let a of user_det"  ><td >{{a.user_id}}</td> <td>{{a.name}}</td>  <td>{{a.month}}</td>  <td> {{a.mess_name}}</td><td>{{a.month_bill}}</td><td style="text-align: center"><a (click)="display()"><i class="fa fa-edit" style="font-size:28px;color:red"></i></a>
+       </td></tr>
+       <section id="update" style="margin-left: 70%;"> 
+          <form [formGroup]="month_form" class="form-wrapper" (ngSubmit)="check2(month_form.value)">
+            <input type="text" id="search"  value={{user_det[0].month_bill}} formControlName="month_b">
+            <input type="submit"  id="submit" value="update">
+            </form>
+          </section>
+          
+       </table>
+</div>
+
+
+      </body>
+  

@@ -1,0 +1,90 @@
+
+
+      
+      
+      <html>
+        
+   
+     
+
+          <body>
+            <head>
+              <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+              <script>
+             
+              </script>
+               <style>
+                #container
+                {
+                    margin-left:400px;
+                    margin-top:50px;
+                }
+                #to,#subject,#content
+                {
+                    font-family: "Segoe UI";
+                    font-size:18px;
+                    width:530px;
+                }
+                h1
+                {
+                    font-family: "Segoe UI";
+                    font-size:40px; 
+                    color: #3b5998;
+                }
+                p
+                {
+                    color:green;
+                }
+                #send_email
+                {
+                    font-size:15px;
+                    font-family: "Segoe UI";
+                }
+                #message
+                {
+                    font-size:18px;
+                }
+                </style>
+              </head>
+
+              <div class="panel-lite">
+                  <div class="thumbur">
+                    <div class="icon-lock"></div>
+                  </div>
+                  <h4>Login</h4>
+                  <form [formGroup]='loginform' (ngSubmit)='check_user(loginform.value)'>
+
+                  <div class="form-group">
+                    <input id="float-input" type="text" class="form-control" placeholder="User name" formControlName="user_name" pInputText> 
+              <div style="color:red" *ngIf="loginform.get('user_name').invalid && (loginform.get('user_name').dirty|| loginform.get('user_name').touched)">
+                  <div *ngIf="loginform.get('user_name').hasError('required')">enter username</div>       
+              </div><br>
+                    <label class="form-label">  </label>
+                  </div>
+                  <div class="form-group">
+                    <input id="float-input"  class="form-control" type="password" placeholder="Password" formControlName="password" pInputText> 
+                    <div style="color:red" *ngIf="loginform.get('password').invalid && (loginform.get('password').dirty|| loginform.get('password').touched)">
+                        <div *ngIf="loginform.get('password').hasError('required')">enter password</div>      
+                      </div><br>
+                    <label class="form-label"></label>
+                  </div>
+                  <div class="form-group">
+                  <input type="radio" name="user_type" formControlName="user_type" value="student"><span>Student</span>
+                  <input type="radio" name="user_type" formControlName="user_type" value="incharge"><span>Incharge</span>
+                 <input type="radio" name="user_type" formControlName="user_type" value="admin"> <span>Admin</span>
+
+                  <div style="color:red" *ngIf="loginform.get('user_type').invalid && (loginform.get('user_type').dirty|| loginform.get('user_type').touched)">
+                      <div *ngIf="loginform.get('user_type').hasError('user_type')">select the type of user</div>      
+                    </div><br>
+                  </div>
+                  <button type="submit" class="floating-btn"><i class="icon-arrow"></i></button>
+                  </form>
+                </div>
+               
+          </body>
+          
+          
+            
+           
+</html>
+    

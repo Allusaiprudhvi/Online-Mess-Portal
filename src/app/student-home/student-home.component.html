@@ -1,0 +1,36 @@
+<body>
+  <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+<header style="padding:5px;">
+  <h1 style="color:white;">Mess Portal</h1>
+
+  <div align="right" style="position: relative"> <a routerLink='/user_profile'><img width=80px; height=100px; style="margin-right: 5px;" src="http://webiconspng.com/wp-content/uploads/2016/11/account_avatar_male_profile_user_icon_1218734.png"></a></div>
+
+  <h3 style="text-align: right">{{name}}</h3>
+  <p style="text-align: right">Your due is {{dues}}</p> 
+  </header>
+<nav>
+  <ul>
+    <li  routerLinkActive="active"><a class="active" routerLink='/student_home'>Home</a></li>
+    <li routerLinkActive="active"><a (click)="check()">Allot Mess</a></li>
+    <li routerLinkActive="active"><a  routerLink='/student_feedback'>FeedBack</a></li>
+    <li  routerLinkActive="active"><a  routerLink='/student_menu'>Mess Menu</a></li>
+    <li>        <a href="javascript:void(0);" (click)="logout()">Logout</a></li>
+  </ul>
+</nav>
+
+    <table class="responstable" style="text-align: center">
+
+   <tr><th>Mess</th><th>Mess Type</th><th>Vacancy</th></tr>
+    <tr *ngFor="let a of mess"  ><td >{{a.mess_name}}</td> <td>{{a.mess_type}}</td>    <td> {{a.vacancy}}</td></tr>
+    </table>
+    
+  
+  
+<div class="break"></div>
+  <footer>
+  </footer>
+  </body>

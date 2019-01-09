@@ -1,0 +1,148 @@
+<body>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+       
+      
+        
+      </head>
+  <header style="padding:5px;">
+    <h1 style="color:white;">Mess Portal</h1>
+    <h3 style="text-align: right;color:white;">{{name}} MESS</h3>
+    <h3 style="text-align: right;color:white;">{{mail}}</h3>
+
+    </header>
+  <nav>
+    <ul>
+      <li  routerLinkActive="active"><a routerLink='/incharge_home'>Home</a></li>
+      <li routerLinkActive="active"><a class="active" routerLink='/incharge_menu'>Add Menu</a></li>
+      <li routerLinkActive="active"><a  routerLink='/incharge_update'>Update Bill</a></li>
+
+      <li>        <a href="javascript:void(0);" (click)="logout()">Logout</a></li>
+    </ul>
+  </nav>
+
+
+  
+
+
+  <h2 style="text-align: center">Menu Form</h2>
+
+<form   [formGroup]="mess_form" (ngSubmit)="menu_det(mess_form.value)">
+     <table class="responstable" style="text-align: center">
+
+ <tr> <th></th><th>Morning items</th>   <th>Afternoon Items</th> <th>Evening Items</th></tr>
+
+<tr>
+
+  <td>
+    MONDAY
+    </td>
+    <td>
+      <textarea class="input col s2" type="text" class="validate" formControlName="mm" cols="30" rows="5"></textarea>
+    </td>
+     <td>
+        <textarea class="input col s2" type="text" class="validate" formControlName="ma" cols="30" rows="5"></textarea> 
+     </td>
+    <td>
+    <textarea class="input col s2" type="text" class="validate" formControlName="me" cols="30" rows="5"></textarea>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        TUESDAY
+        </td>
+        <td>
+            <textarea class="input col s2" type="text" class="validate" formControlName="tum" cols="30" rows="5"></textarea>
+          </td>
+           <td>
+              <textarea class="input col s2" type="text" class="validate" formControlName="tua" cols="30" rows="5"></textarea> 
+           </td>
+          <td>
+          <textarea class="input col s2" type="text" class="validate" formControlName="tue" cols="30" rows="5"></textarea>
+          </td>
+</tr>  
+
+       <tr>
+              <td>
+              WEDNESDAY
+              </td>
+              <td>
+                  <textarea class="input col s2" type="text" class="validate" formControlName="wm" cols="30" rows="5"></textarea>
+                </td>
+                 <td>
+                    <textarea class="input col s2" type="text" class="validate" formControlName="wa" cols="30" rows="5"></textarea> 
+                 </td>
+                <td>
+                <textarea class="input col s2" type="text" class="validate" formControlName="we" cols="30" rows="5"></textarea>
+                </td>
+            
+         </tr>   
+
+
+         <tr>
+               <td>
+                THURSDAY
+                </td>
+                <td>
+                    <textarea class="input col s2" type="text" class="validate" formControlName="thm" cols="30" rows="5"></textarea>
+                  </td>
+                   <td>
+                      <textarea class="input col s2" type="text" class="validate" formControlName="tha" cols="30" rows="5"></textarea> 
+                   </td>
+                  <td>
+                  <textarea class="input col s2" type="text" class="validate" formControlName="the" cols="30" rows="5"></textarea>
+                  </td>
+            </tr>
+
+            <tr>
+                <td>
+                    FRIDAY
+                    </td>
+                    <td>
+                        <textarea class="input col s2" type="text" class="validate" formControlName="fm" cols="30" rows="5"></textarea>
+                      </td>
+                       <td>
+                          <textarea class="input col s2" type="text" class="validate" formControlName="fa" cols="30" rows="5"></textarea> 
+                       </td>
+                      <td>
+                      <textarea class="input col s2" type="text" class="validate" formControlName="fe" cols="30" rows="5"></textarea>
+                      </td>
+              </tr>
+                
+              <tr>
+                  <td>
+                      SATURDAY
+                      </td>
+                      <td>
+                          <textarea class="input col s2" type="text" class="validate" formControlName="sm" cols="30" rows="5"></textarea>
+                        </td>
+                         <td>
+                            <textarea class="input col s2" type="text" class="validate" formControlName="sa" cols="30" rows="5"></textarea> 
+                         </td>
+                        <td>
+                        <textarea class="input col s2" type="text" class="validate" formControlName="se" cols="30" rows="5"></textarea>
+                        </td>
+                  </tr>
+
+              <tr>
+                  <td>
+                     SUNDAY
+                      </td>
+                   
+                    <td>
+                        <textarea class="input col s2" type="text" class="validate" formControlName="sum" cols="30" rows="5"></textarea>
+                      </td>
+                       <td>
+                          <textarea class="input col s2" type="text" class="validate" formControlName="sua" cols="30" rows="5"></textarea> 
+                       </td>
+                      <td>
+                      <textarea class="input col s2" type="text" class="validate" formControlName="sue" cols="30" rows="5"></textarea>
+                      </td>
+                      </tr>
+                      </table>
+           <input style="text-align: center;padding: 10px 20px;margin-left: 40%;border-radius: 30%;background-color: green;margin-top: 20px;margin-bottom:20px;color:white;outline: none;" type="submit" value="submit">
+</form>
+</body>
